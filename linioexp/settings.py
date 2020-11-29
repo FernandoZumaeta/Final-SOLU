@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,3 +132,9 @@ import os
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '0yL9WOG8vjcAAAAAAAAAAYaQSGoO4x_6vfIoBNKXzqrJRMuqMOh8FAo8C0RDfPn5'
+
+import django_heroku
+django_heroku.settings(locals())
