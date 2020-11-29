@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@n3fjrepag5)t2)b^_kwa813y2+h3szyn1b*mkyz83+(n(186('
+SECRET_KEY = 'l2t*+t&h30!$9a_0(5a$sp6nmb$)dz!o5k*u3ick)m!%85y+u='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,17 +124,22 @@ STATIC_URL = '/static/'
 LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '65fb27a6fe5abe'
-EMAIL_HOST_PASSWORD = '8dbe823cd95286'
+EMAIL_HOST_USER = 'a5b4c206612c11'
+EMAIL_HOST_PASSWORD = 'e96f0ece9e0296'
 EMAIL_PORT = '2525'
 
 import os
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = '0yL9WOG8vjcAAAAAAAAAAYaQSGoO4x_6vfIoBNKXzqrJRMuqMOh8FAo8C0RDfPn5'
 
+# Django Storages
+
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '8bDRbVCnM9kAAAAAAAAAAc5FtS03F96SzhZQv0BLWx1aWTUWc1S1yvfFN75GrdIU'
+
+
+# Django Heroku
 import django_heroku
 django_heroku.settings(locals())
