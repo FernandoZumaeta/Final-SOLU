@@ -130,7 +130,7 @@ EMAIL_PORT = '2525'
 
 import os
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 MEDIA_URL = '/media/'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
