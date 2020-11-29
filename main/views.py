@@ -19,7 +19,6 @@ class HomePageView(TemplateView):
     context = super().get_context_data(**kwargs)
     context['latest_products'] = Producto.objects.all()[:8]
 
-    return context
 
 class ProductListView(ListView):
   model = Producto
@@ -143,12 +142,12 @@ class RegistrationView(FormView):
     return super().form_valid(form)
 
 class AddToCartView(View):
-  def get(self, request, product_pk):
+  def get(self, request, pk):
     # Obten el cliente
     user_profile = Profile.objects.get(user=request.user)
     cliente = Cliente.objects.get(user_profile=user_profile)
     # Obtén el producto que queremos añadir al carrito
-    producto = Producto.objects.get(pk=product_pk)
+    producto = Producto.objects.get(pk=pk)
     # Obtén/Crea un/el pedido en proceso (EP) del usuario
     pedido, _ = Pedido.objects.get_or_create(cliente=cliente, estado='EP')
     # Obtén/Crea un/el detalle de pedido
