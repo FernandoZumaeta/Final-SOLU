@@ -142,12 +142,12 @@ class RegistrationView(FormView):
     return super().form_valid(form)
 
 class AddToCartView(View):
-  def get(self, request, pk):
+  def get(self, request, product_pk):
     # Obten el cliente
     user_profile = Profile.objects.get(user=request.user)
     cliente = Cliente.objects.get(user_profile=user_profile)
     # Obtén el producto que queremos añadir al carrito
-    producto = Producto.objects.get(pk=pk)
+    producto = Producto.objects.get(pk=product_pk)
     # Obtén/Crea un/el pedido en proceso (EP) del usuario
     pedido, _ = Pedido.objects.get_or_create(cliente=cliente, estado='EP')
     # Obtén/Crea un/el detalle de pedido
